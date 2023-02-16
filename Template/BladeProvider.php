@@ -33,12 +33,7 @@ class BladeProvider extends ViewServiceProvider
      */
     public function register()
     {
-        $this->registerFilesystem();
-        $this->registerEvents();
-        $this->registerEngineResolver();
-        $this->registerViewFinder();
-        $this->registerFactory();
-        return $this;
+        parent::register();
     }
 
     /**
@@ -47,7 +42,6 @@ class BladeProvider extends ViewServiceProvider
     public function registerFilesystem()
     {
         $this->app->bindIf('files', Filesystem::class, true);
-        return $this;
     }
 
     /**
@@ -56,7 +50,6 @@ class BladeProvider extends ViewServiceProvider
     public function registerEvents()
     {
         $this->app->bindIf('events', Dispatcher::class, true);
-        return $this;
     }
 
     /**
